@@ -1,0 +1,20 @@
+<div class="p-datatable-wrapper">
+  <table role="grid" #table>
+    <ng-container *ngTemplateOutlet="colGroupTemplate; context {$implicit: columns}"></ng-container>
+    <thead class="p-datatable-thead">
+      <ng-container *ngTemplateOutlet="headerTemplate; context: {$implicit: columns}"></ng-container>
+    </thead>
+    <tbody class="p-datatable-tbody">
+      <ng-container>
+        <ng-template ngFor let-rowData [ngForOf]="value">
+          <ng-container *ngTemplateOutlet="bodyTemplate; context {$implicit: rowData}"></ng-container>
+        </ng-template>
+      </ng-container>
+    </tbody>
+    <tfoot *ngIf="footerTemplate" class="p-datatable-tfoot">
+      <ng-container *ngTemplateOutlet="footerTemplate; context {$implicit: columns}"></ng-container>
+    </tfoot>
+  </table>
+
+</div>
+<h1>teste</h1>
